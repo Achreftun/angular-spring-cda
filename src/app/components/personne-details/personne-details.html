@@ -1,0 +1,18 @@
+<h2 class="my-5 text-primary">Détails de la personne avec id = {{ id }}</h2>
+@if (personne) {
+<ul class="alert alert-primary container">
+    <li>Nom : {{ personne.nom }}</li>
+    <li>Prénom : {{ personne.prenom }}</li>
+    <li>Âge : {{ personne.age }}</li>
+</ul>
+} @else {
+<div class="alert alert-danger container" role="alert">
+    Cette personne n'existe pas
+</div>
+}
+
+<div class="my-5">
+    <button class="btn  text-primary" (click)="retour()">
+        <i class="fa-regular fa-circle-left"></i>
+    </button>
+</div>

@@ -1,0 +1,16 @@
+<h2>Pays</h2>
+<div>
+    @for (v of villes; track $index) {
+    {{ v }}
+    }
+</div>
+<div>
+    @for (v of villes; track $index) {
+    <app-ville [(ville)]="villes[$index]"  />
+    }
+</div>
+<!-- <div>
+    @for (v of villes; track $index) {
+    <app-ville [ville]="v" (sendVille)="modifierVille($index, $event)" />
+    }
+</div> -->

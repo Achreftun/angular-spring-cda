@@ -1,0 +1,18 @@
+<h2>Père/fils : {{ pays ?? 'Non défini' }}</h2>
+<app-fils ville="{{ ville }}" (sendPays)="afficherPays($event)">{{ nom }}</app-fils> 
+<app-fils [ville]="ville">{{ nom }}</app-fils> 
+<app-fils></app-fils> 
+<ul>
+    @for (n of noms; track $index) {
+        <li>
+            <app-fils [ville]="villes[$index]">{{ n }}</app-fils>
+        </li>
+    }
+</ul>
+<h3>ViewChild</h3>
+<button class="btn btn-danger" (click)="espionnerUn()">
+    Expionner le premier enfant
+</button>
+<button class="btn btn-danger" (click)="espionnerTout()">
+    Expionner tous les enfants
+</button>

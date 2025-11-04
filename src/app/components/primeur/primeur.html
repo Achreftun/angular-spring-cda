@@ -1,0 +1,19 @@
+<h2>Primeur : total = {{ total }}</h2>
+<h3>Ajouter un nouveau produit</h3>
+<div>
+    <input type="text" placeholder="Nom" [(ngModel)]="produit.nom">
+    <input type="number" placeholder="Quantité" [(ngModel)]="produit.quantite">
+    <input type="number" placeholder="Prix" [(ngModel)]="produit.prix">
+    <button class="btn" (click)="ajouter()">
+        <i class="fa-solid fa-plus"></i>
+    </button>
+</div>
+<h3>Liste des produits</h3>
+<ul>
+    @for (p of produits; track $index) {
+        <app-produit 
+        [produit]="p" 
+        (sendQuantity)="calculerTotal($event, $index)"
+        />
+    }
+</ul>

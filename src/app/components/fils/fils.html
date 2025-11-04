@@ -1,0 +1,9 @@
+<p>
+    Bonjour <ng-content>Doe</ng-content> de {{ ville ?? 'Toulouse' }}!
+</p>
+<div>
+    <input type="text" [(ngModel)]="pays">
+    <button class="btn" (click)="envoyer()">
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+</div>
