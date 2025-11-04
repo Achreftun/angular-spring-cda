@@ -3,10 +3,11 @@ import Personne from '../../models/personne';
 import { PersonneService } from '../../services/personne';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
+import { FormPersonne } from "../form-personne/form-personne";
 
 @Component({
   selector: 'app-personne-details',
-  imports: [FormsModule],
+  imports: [FormsModule, FormPersonne],
   templateUrl: './personne-details.html',
   styleUrl: './personne-details.css'
 })
