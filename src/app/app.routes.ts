@@ -22,6 +22,8 @@ import { PereComponent } from './components/pere/pere';
 import { PrimeurComponent } from './components/primeur/primeur';
 import { ClavierComponent } from './components/clavier/clavier';
 import { PaysComponent } from './components/pays/pays';
+import { ContainerComponent } from './components/container/container';
+import { TchatComponent } from './components/tchat/tchat';
 
 
 // Avant Angular 19, app-routing.module.ts
@@ -36,7 +38,9 @@ export const routes: Routes = [
     { path: 'calculette', component: CalculetteComponent },
     { path: 'pere', component: PereComponent },
     { path: 'pays', component: PaysComponent },
+    { path: 'tchat', component: TchatComponent },
     { path: 'clavier', component: ClavierComponent },
+    { path: 'container', component: ContainerComponent },
     { path: 'tableau/:index', component: TableauComponent },
     { path: 'adresse', component: AdresseComponent },
     { path: 'primeur', component: PrimeurComponent },

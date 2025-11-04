@@ -1,0 +1,11 @@
+<h2 class="text-center text-primary my-5">Participant : {{ nom }}</h2>
+Message : <input type="text" [(ngModel)]="message" class="form-control">
+<button class="btn btn-primary" (click)="envoyer()">
+    Envoyer
+</button>
+<h3 class="text-center text-primary my-5">Messages reçus</h3>
+<ul>
+    @for(item of senderMessages; track $index) {
+    <li>{{ item.sender }} : {{ item.message }}</li>
+    }
+</ul>

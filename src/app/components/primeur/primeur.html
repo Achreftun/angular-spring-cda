@@ -13,7 +13,7 @@
     @for (p of produits; track $index) {
         <app-produit 
         [produit]="p" 
-        (sendQuantity)="calculerTotal($event, $index)"
+        (sendQuantity)="calculerTotal($index)"
         />
     }
 </ul>

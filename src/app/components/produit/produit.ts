@@ -14,7 +14,7 @@ export class ProduitComponent {
   @Output() sendQuantity = new EventEmitter<number>()
   qteReservee: number | null = null
   ajouterPanier() {
-    this.sendQuantity.emit(this.qteReservee ?? 0)
+    this.sendQuantity.emit()
     this.isDisabled = true
   }
 }

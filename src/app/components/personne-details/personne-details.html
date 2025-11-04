@@ -1,4 +1,36 @@
 <h2 class="my-5 text-primary">Détails de la personne avec id = {{ id }}</h2>
+<h3>Ajouter une nouvelle personne</h3>
+<form (ngSubmit)="modifier()" #form="ngForm">
+    <div>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" [(ngModel)]="personne.nom" name="nom" required minlength="2" #nom="ngModel">
+        <span [hidden]="nom.valid || nom.pristine">
+            Le nom est obligatoire
+        </span>
+    </div>
+    <div>
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" [(ngModel)]="personne.prenom" name="prenom" required minlength="2"
+            #prenom="ngModel">
+        <span [hidden]="prenom.valid || prenom.pristine">
+            Le prénom est obligatoire
+        </span>
+    </div>
+    <div>
+        <label for="age">Âge</label>
+        <input type="number" id="age" [(ngModel)]="personne.age" name="age" required min="15" max="150" #age="ngModel">
+        <span [hidden]="age.valid || age.pristine">
+            L'âge est obligatoire
+        </span>
+    </div>
+    <div>
+        <button class="btn" [disabled]="form.invalid">
+            <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+    </div>
+</form>
+
+
 @if (personne) {
 <ul class="alert alert-primary container">
     <li>Nom : {{ personne.nom }}</li>
