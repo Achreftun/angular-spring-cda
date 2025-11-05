@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { environment } from '../../environments/environment.development';
 import { Jwt } from '../models/jwt';
 import { Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,10 @@ export class JwtService {
 
   getTokens(user: User): Observable<Jwt> {
     return this.http.post<Jwt>(`${environment.BACKEND_URL}/authenticate`, user);
+  }
+  isValid(token: string): boolean {
+    const now = Date.now()
+    const exp = (jwtDecode(token).exp ?? 0) * 1000
+    return exp > now;
   }
 }
