@@ -24,6 +24,8 @@ import { ClavierComponent } from './components/clavier/clavier';
 import { PaysComponent } from './components/pays/pays';
 import { ContainerComponent } from './components/container/container';
 import { TchatComponent } from './components/tchat/tchat';
+import { AuthComponent } from './components/auth/auth';
+import { authGuard } from './guards/auth-guard';
 
 
 // Avant Angular 19, app-routing.module.ts
@@ -37,12 +39,13 @@ export const routes: Routes = [
     { path: 'calcul/:op', component: CalculComponent },
     { path: 'calculette', component: CalculetteComponent },
     { path: 'pere', component: PereComponent },
+    { path: 'auth', component: AuthComponent },
     { path: 'pays', component: PaysComponent },
     { path: 'tchat', component: TchatComponent },
     { path: 'clavier', component: ClavierComponent },
     { path: 'container', component: ContainerComponent },
     { path: 'tableau/:index', component: TableauComponent },
-    { path: 'adresse', component: AdresseComponent },
+    { path: 'adresse', component: AdresseComponent, canActivate: [authGuard] },
     { path: 'primeur', component: PrimeurComponent },
     { path: 'formulaire', component: FormulaireComponent },
     { path: 'reac-form', component: ReactiveFormComponent },
