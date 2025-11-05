@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { JwtService } from '../../services/jwt';
 
 @Component({
   selector: 'app-auth',
@@ -11,21 +12,29 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   user: User = {}
-  constructor(private router: Router) { }
   erreur: String | null = null
-  seConnecter(form: NgForm) {
-    if (this.user.username == 'user' && this.user.password == "user" ||
-      this.user.username == 'admin' && this.user.password == "admin" ||
-      this.user.username == 'sadmin' && this.user.password == "sadmin"
+  constructor(private router: Router, private jwtService: JwtService) { }
 
-    ) {
-      localStorage.setItem('isConnected', 'true')
-      localStorage.setItem('user', JSON.stringify(this.user))
-      const url = this.router.createUrlTree(['/adresse'], { queryParams: { ville: 'Marseille', codePostal: '13000' } })
-      this.router.navigateByUrl(url)
-    } else {
-      this.erreur = "Identifiants incorrects"
-    }
+
+
+  seConnecter() {
+    this.user.grantType = 'PASSWORD'
+    this.jwtService.getTokens(this.user).subscribe({
+      next: res => {
+        localStorage.setItem('isConnected', 'true')
+        localStorage.setItem('accessToken', res.accessToken ?? '')
+        localStorage.setItem('refreshToken', res.refreshToken ?? '')
+        localStorage.setItem('user', JSON.stringify(this.user))
+        const url = this.router.createUrlTree(['/adresse'], { queryParams: { ville: 'Marseille', codePostal: '13000' } })
+        this.router.navigateByUrl(url)
+      },
+      error: err => {
+        console.log('erreur')
+        this.erreur = "Identifiants incorrects"
+      }
+
+
+    })
 
   }
 }
