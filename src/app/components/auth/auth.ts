@@ -14,8 +14,13 @@ export class AuthComponent {
   constructor(private router: Router) { }
   erreur: String | null = null
   seConnecter(form: NgForm) {
-    if (this.user.username == 'user' && this.user.password == "user") {
+    if (this.user.username == 'user' && this.user.password == "user" ||
+      this.user.username == 'admin' && this.user.password == "admin" ||
+      this.user.username == 'sadmin' && this.user.password == "sadmin"
+
+    ) {
       localStorage.setItem('isConnected', 'true')
+      localStorage.setItem('user', JSON.stringify(this.user))
       const url = this.router.createUrlTree(['/adresse'], { queryParams: { ville: 'Marseille', codePostal: '13000' } })
       this.router.navigateByUrl(url)
     } else {
