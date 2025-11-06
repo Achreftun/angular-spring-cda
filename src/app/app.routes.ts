@@ -27,6 +27,7 @@ import { TchatComponent } from './components/tchat/tchat';
 import { AuthComponent } from './components/auth/auth';
 import { authGuard } from './guards/auth-guard';
 import { CompteurComponent } from './components/compteur/compteur';
+import { PanierComponent } from './components/panier/panier';
 
 
 // Avant Angular 19, app-routing.module.ts
@@ -49,6 +50,7 @@ export const routes: Routes = [
     { path: 'tableau/:index', component: TableauComponent },
     { path: 'adresse', component: AdresseComponent, canActivate: [authGuard] },
     { path: 'primeur', component: PrimeurComponent },
+    { path: 'panier', component: PanierComponent },
     { path: 'formulaire', component: FormulaireComponent },
     { path: 'reac-form', component: ReactiveFormComponent },
     { path: 'builder-form', component: BuilderFormComponent },

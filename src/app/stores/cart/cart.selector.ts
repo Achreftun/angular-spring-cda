@@ -14,3 +14,8 @@ export const selectQuantiteTotale = createSelector(
     (state: CartState) => !state.lignesCommandes ? 0 : state.lignesCommandes.map(lc => lc.qteReservee).reduce((p, c) => (p ?? 0) + (c ?? 0), 0) ?? 0
 )
 
+export const selectLignesCommandes = createSelector(
+    selectCartState,
+    (state: CartState) => state.lignesCommandes 
+)
+

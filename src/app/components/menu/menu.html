@@ -38,9 +38,7 @@
     <a class="nav-link" routerLinkActive="active-link" routerLink="/pere">
         Pere (ng-content et @Input)
     </a>
-    <a class="nav-link" routerLinkActive="active-link" routerLink="/primeur">
-        Primeur (@Input/@Output)
-    </a>
+
     <a class="nav-link" routerLinkActive="active-link" routerLink="/clavier">
         Clavier virtuel
     </a>
@@ -56,7 +54,13 @@
     <a class="nav-link" routerLinkActive="active-link" routerLink="/compteur">
         Compteur (NgRx)
     </a>
-    <span class="nav-link" >
-         Nombre de produits : {{ nombreProduit$ | async }}, Quantité totale : {{ qteTotale$ | async}} 
+    <a class="nav-link" routerLinkActive="active-link" routerLink="/primeur">
+        Primeur (@Input/@Output)
+    </a>
+    <a class="nav-link" routerLinkActive="active-link" routerLink="/panier">
+        Panier 
+    </a>
+    <span class="nav-link">
+        Nombre de produits : {{ nombreProduit$ | async }}, Quantité totale : {{ qteTotale$ | async}}
     </span>
 </nav>

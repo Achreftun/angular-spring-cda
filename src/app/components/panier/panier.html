@@ -1,0 +1,43 @@
+<h2 class="text-primary text-center my-5">Panier : <button class="btn btn-danger"
+        (click)="supprimerTout()">Vider</button></h2>
+@if (lignesCommandes.length > 0) {
+<table class="container table table-hover my-5">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité réservée</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    @for (lc of lignesCommandes; track $index) {
+    <tbody>
+        <tr>
+            <td>
+                {{ lc.produit.nom }}
+            </td>
+            <td>
+                {{ lc.produit.prix }}
+            </td>
+            <td>
+                {{ lc.qteReservee }}
+            </td>
+            <td>
+                <button class="btn" (click)="supprimerProduit($index)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    }
+
+</table>
+} @else {
+<div class="container">
+    <div class=" row alert alert-danger my-5">
+        Votre panier est vide
+    </div>
+</div>
+
+}

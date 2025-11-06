@@ -22,7 +22,7 @@ export class PrimeurComponent {
     const qteReservee = this.produitsComponent.get(ind)?.qteReservee ?? 0
     this.total += qteReservee * (this.produits[ind].prix ?? 0)
     // if (this.produits[ind].quantite) {
-    this.produits[ind].quantite! -= qteReservee
+    // this.produits[ind].quantite! -= qteReservee
     // }
   }
   ajouter() {
