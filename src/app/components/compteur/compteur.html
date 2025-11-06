@@ -1,0 +1,13 @@
+<h2>Compteur</h2>
+<div>
+    <button class="btn" (click)="decrementer()"><i class="fa-solid fa-minus"></i></button>
+    {{ valeur }}
+    <button class="btn" (click)="incrementer()"><i class="fa-solid fa-plus"></i></button>
+</div>
+<div>
+    <div><input type="number" [(ngModel)]="step"></div>
+    <div>
+        <button class="btn" (click)="ajouter()">Ajouter</button>
+        <button class="btn" (click)="reset()"><i class="fa-solid fa-0"></i></button>
+    </div>
+</div>
