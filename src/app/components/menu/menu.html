@@ -56,4 +56,7 @@
     <a class="nav-link" routerLinkActive="active-link" routerLink="/compteur">
         Compteur (NgRx)
     </a>
+    <span class="nav-link" >
+         Nombre de produits : {{ nombreProduit$ | async }}, Quantité totale : {{ qteTotale$ | async}} 
+    </span>
 </nav>
